@@ -35,5 +35,15 @@ int main()
 		delete j;
 		delete i;
 	}
+
+	MAIN_LOG("");
+	MAIN_LOG("Shallow copy test");
+	{
+		Cat original = Cat();
+		Cat copy = Cat(original);
+
+		MAIN_LOG("original cat Brain Address: \n" << original.getBrain() << std::endl <<
+		"copy cat Brain Address: \n" << copy.getBrain());
+	}
 	return 0;
 }

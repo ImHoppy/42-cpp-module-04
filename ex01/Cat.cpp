@@ -31,7 +31,7 @@ Cat &				Cat::operator=( Cat const & rhs )
 	if ( this != &rhs )
 	{
 		this->_type = rhs._type;
-		this->_brain = rhs._brain;
+		*(this->_brain) = *(rhs._brain);
 	}
 	return *this;
 }
@@ -45,5 +45,9 @@ void					Cat::makeSound(void) const
 
 /* -------------------------------- ACCESSOR -------------------------------- */
 
+Brain const *	Cat::getBrain(void) const
+{
+	return (this->_brain);
+}
 
 /* ************************************************************************** */

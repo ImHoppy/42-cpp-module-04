@@ -43,6 +43,7 @@ class Dog : public Animal
 
 		Dog &			operator=( Dog const & rhs );
 		void	makeSound(void) const;
+		Brain const *	getBrain(void) const;
 
 	private:
 		Brain *_brain;
@@ -60,6 +61,7 @@ class Cat : public Animal
 
 		Cat &			operator=( Cat const & rhs );
 		void	makeSound(void) const;
+		Brain const *	getBrain(void) const;
 
 	private:
 		Brain *_brain;
