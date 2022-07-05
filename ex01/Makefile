@@ -1,4 +1,4 @@
-NAME		=	DiamondTrap
+NAME		=	Brain
 
 CC			=	c++
 
@@ -7,7 +7,7 @@ ifeq ($(DEBUG), 1)
 	CFLAGS		+= -DDEBUG_LOG=1
 endif
 
-SRCS		=	main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
+SRCS		=	main.cpp 
 
 OBJS		=	$(SRCS:.cpp=.o)
 DEPS		=	$(OBJS:.o=.d)
