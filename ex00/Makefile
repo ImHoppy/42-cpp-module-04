@@ -7,7 +7,7 @@ ifeq ($(DEBUG), 1)
 	CFLAGS		+= -DDEBUG_LOG=1
 endif
 
-SRCS		=	main.cpp Animal.cpp Dog.cpp Cat.cpp
+SRCS		=	main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp
 
 OBJS		=	$(SRCS:.cpp=.o)
 DEPS		=	$(OBJS:.o=.d)

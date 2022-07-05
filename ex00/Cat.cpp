@@ -2,8 +2,9 @@
 
 /* ------------------------------ CONSTRUCTOR ------------------------------- */
 
-Cat::Cat(): Animal(), _type("Cat")
+Cat::Cat(): Animal()
 {
+	this->_type = "Cat";
 	LOG("Cat default constructor called.");
 }
 
@@ -33,7 +34,7 @@ Cat &				Cat::operator=( Cat const & rhs )
 
 /* -------------------------------- METHODS --------------------------------- */
 
-void					Cat::makeSound(void)
+void					Cat::makeSound(void) const
 {
 	LOG("Cat: " << "\033[0m" << "MEOW MEOW");
 }

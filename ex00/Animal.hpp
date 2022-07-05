@@ -20,13 +20,13 @@ class Animal
 
 		Animal();
 		Animal( Animal const & src );
-		~Animal();
+		virtual ~Animal();
 
 		Animal &			operator=( Animal const & rhs );
 		virtual void		makeSound(void) const;
 
-		const std::string &	getType(void) const;
-		void				setType(std::string const & type);
+		std::string const &	getType(void) const;
+		void				setType(std::string & type);
 	protected:
 		std::string	_type;
 };
@@ -41,7 +41,7 @@ class Dog : public Animal
 		~Dog();
 
 		Dog &			operator=( Dog const & rhs );
-		virtual void	makeSound(void);
+		void	makeSound(void) const;
 
 	private:
 
@@ -57,11 +57,11 @@ class Cat : public Animal
 		~Cat();
 
 		Cat &			operator=( Cat const & rhs );
-		virtual void	makeSound(void);
+		void	makeSound(void) const;
 
 	private:
 
 };
 
 
-#endif /* ANIMAL_H */
+#endif /* ANIMAL_HPP*/

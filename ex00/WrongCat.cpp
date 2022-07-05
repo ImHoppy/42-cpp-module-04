@@ -1,28 +1,29 @@
-#include "Animal.hpp"
+#include "WrongAnimal.hpp"
 
 /* ------------------------------ CONSTRUCTOR ------------------------------- */
 
-Animal::Animal(): _type("")
+WrongCat::WrongCat(): WrongAnimal()
 {
-	LOG("Animal default constructor called.");
+	this->_type = "WrongCat";
+	LOG("WrongCat default constructor called.");
 }
 
-Animal::Animal( const Animal & src )
+WrongCat::WrongCat( const WrongCat & src ): WrongAnimal()
 {
-	LOG("Animal copy constructor called.");
+	LOG("WrongCat copy constructor called.");
 	*this = src; 
 }
 
 /* ------------------------------- DESTRUCTOR ------------------------------- */
 
-Animal::~Animal()
+WrongCat::~WrongCat()
 {
-	LOG("Animal destructor called.");
+	LOG("WrongCat destructor called.");
 }
 
 /* -------------------------------- OVERLOAD -------------------------------- */
 
-Animal &				Animal::operator=( Animal const & rhs )
+WrongCat &				WrongCat::operator=( WrongCat const & rhs )
 {
 	if ( this != &rhs )
 	{
@@ -33,22 +34,12 @@ Animal &				Animal::operator=( Animal const & rhs )
 
 /* -------------------------------- METHODS --------------------------------- */
 
-void			Animal::makeSound(void) const
+void					WrongCat::makeSound(void) const
 {
-	LOG("Animal can't produce sound.");
+	LOG("WrongCat: " << "\033[0m" << "MEOW MEOW");
 }
 
 /* -------------------------------- ACCESSOR -------------------------------- */
 
-
-std::string const &	Animal::getType(void) const
-{
-	return (this->_type);
-}
-
-void				Animal::setType(std::string & type)
-{
-	this->_type = type;
-}
 
 /* ************************************************************************** */

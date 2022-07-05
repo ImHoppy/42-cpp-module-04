@@ -2,8 +2,9 @@
 
 /* ------------------------------ CONSTRUCTOR ------------------------------- */
 
-Dog::Dog(): Animal(), _type("Dog")
+Dog::Dog(): Animal()
 {
+	this->_type = "Dog";
 	LOG("Dog default constructor called.");
 }
 
@@ -34,7 +35,7 @@ Dog &				Dog::operator=( Dog const & rhs )
 
 /* -------------------------------- METHODS --------------------------------- */
 
-void					Dog::makeSound(void)
+void					Dog::makeSound(void) const
 {
 	LOG("Dog: " << "\033[0m" << "WOOF WOOF");
 }
