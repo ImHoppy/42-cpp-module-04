@@ -20,8 +20,8 @@ Dog::Dog( const Dog & src ): Animal()
 
 Dog::~Dog()
 {
-	LOG("Dog destructor called.");
 	delete	this->_brain;
+	LOG("Dog destructor called.");
 }
 
 

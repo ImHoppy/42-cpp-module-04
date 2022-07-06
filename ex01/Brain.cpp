@@ -18,7 +18,7 @@ Brain::Brain( const Brain & src )
 
 Brain::~Brain()
 {
-	LOG("Destructor called.");
+	LOG("Brain destructor called.");
 }
 
 

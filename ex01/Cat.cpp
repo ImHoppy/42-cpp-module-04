@@ -20,8 +20,8 @@ Cat::Cat( const Cat & src ): Animal()
 
 Cat::~Cat()
 {
-	LOG("Cat destructor called.");
 	delete	this->_brain;
+	LOG("Cat destructor called.");
 }
 
 /* -------------------------------- OVERLOAD -------------------------------- */
