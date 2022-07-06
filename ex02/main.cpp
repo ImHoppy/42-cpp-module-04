@@ -7,7 +7,7 @@ int main()
 
 	#ifdef DEBUG_LOG
 	{
-		MAIN_LOG("Try to create abstract class.");
+		MAIN_LOG("// Try to create abstract class.");
 		Animal* error = new Animal();
 
 		delete error;
@@ -15,9 +15,10 @@ int main()
 	#endif
 
 	{
-		MAIN_LOG("Create cat class with abstract class.");
+		MAIN_LOG("// Create cat class with abstract class.");
 		Animal* cat = new Cat();
 		cat->makeSound();
+		MAIN_LOG("The type is " << cat->getType());
 		delete cat;
 	}
 	return 0;
