@@ -2,14 +2,14 @@
 
 /* ------------------------------ CONSTRUCTOR ------------------------------- */
 
-Cat::Cat(): Animal()
+Cat::Cat()
 {
 	LOG("Cat default constructor called.");
 	this->_type = "Cat";
 	this->_brain = new Brain();
 }
 
-Cat::Cat( const Cat & src ): Animal()
+Cat::Cat( const Cat & src )
 {
 	LOG("Cat copy constructor called.");
 	this->_brain = new Brain();
