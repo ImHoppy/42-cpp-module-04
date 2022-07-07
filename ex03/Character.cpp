@@ -53,8 +53,8 @@ Character &				Character::operator=( Character const & rhs )
 		this->_name = rhs.getName();
 		for (int i = 0; i < 4; i++)
 		{
-			if (_inventory[i] != NULL)
-				this->_inventory[i] = rhs._inventory[i];
+			// if (_inventory[i] != NULL)
+			this->_inventory[i] = rhs._inventory[i];
 		}
 	}
 	return *this;
