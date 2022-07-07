@@ -20,6 +20,11 @@ class Character : public ICharacter
 
 		std::string const & getName() const;
 		void				use( int idx, ICharacter & target );
+		void				equip( AMateria * m );
+		void				unequip( int idx );
+
+	private:
+		void				Init();
 
 	protected:
 		AMateria *	_inventory[4];
