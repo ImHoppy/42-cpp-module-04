@@ -3,8 +3,9 @@
 
 # include <iostream>
 # include <string>
+# include "AMateria.hpp"
 
-class Cure
+class Cure : public AMateria
 {
 
 	public:
@@ -15,10 +16,9 @@ class Cure
 
 		Cure &		operator=( Cure const & rhs );
 
-	private:
+		virtual AMateria*	clone() const;
+		virtual void use( ICharacter & target );
 
 };
-
-std::ostream &			operator<<( std::ostream & o, Cure const & i );
 
 #endif /* CURE_HPP */

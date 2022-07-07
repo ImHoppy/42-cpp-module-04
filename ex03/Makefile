@@ -2,12 +2,12 @@ NAME		=	Interface
 
 CC			=	c++
 
-CFLAGS		=	-Wall -Wextra -Werror -std=c++98 -I. -I./hpp
+CFLAGS		=	-Wall -Wextra -Werror -std=c++98 -I. -Ihpp
 ifeq ($(DEBUG), 1)
 	CFLAGS		+= -DDEBUG_LOG=1
 endif
 
-SRCS		=	main.cpp AMateria.cpp ICharacter.cpp Cure.cpp Ice.cpp
+SRCS		=	main.cpp AMateria.cpp Cure.cpp Ice.cpp
 
 OBJS		=	$(SRCS:.cpp=.o)
 DEPS		=	$(OBJS:.o=.d)
