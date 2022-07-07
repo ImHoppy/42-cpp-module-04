@@ -13,6 +13,22 @@ int main(void)
 	AMateria *	spellIce = new Ice();
 	AMateria *	spellCure = new Cure();
 
+	MAIN_LOG("Copy constructor tests.");
+	{
+		michel.equip(spellCure);
+		Character copy(michel);
+		MAIN_LOG("  - copy call spell");
+		copy.equip(spellIce);
+		copy.use(0, test);
+		copy.use(1, test);
+		MAIN_LOG("  - michel call spell");
+
+		michel.use(0, copy);
+		michel.use(1, copy);
+		michel.unequip(0);
+	}
+
+	MAIN_LOG("Equipe for Main tests.");
 	test.equip(NULL);
 	test.equip(spellIce);
 	test.unequip(0);
