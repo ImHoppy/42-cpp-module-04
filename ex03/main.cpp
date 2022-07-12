@@ -1,5 +1,6 @@
 #include "AMateria.hpp"
 #include "Character.hpp"
+#include "MateriaSource.hpp"
 #include "Ice.hpp"
 #include "Cure.hpp"
 
@@ -27,7 +28,6 @@ int main(void)
 		michel.use(1, copy);
 		michel.unequip(0);
 	}
-
 	MAIN_LOG("Equipe for Main tests.");
 	test.equip(NULL);
 	test.equip(spellIce);
@@ -54,6 +54,25 @@ int main(void)
 		test.use(i, michel);
 	}
 
-	delete spellIce;
-	delete spellCure;
+	// delete spellIce;
+	// delete spellCure;
+
+	MAIN_LOG("Subjects main");
+	{
+		IMateriaSource* src = new MateriaSource();
+		src->learnMateria(new Ice());
+		src->learnMateria(new Cure());
+		ICharacter* me = new Character("me");
+		AMateria* tmp;
+		tmp = src->createMateria("ice");
+		me->equip(tmp);
+		tmp = src->createMateria("cure");
+		me->equip(tmp);
+		ICharacter* bob = new Character("bob");
+		me->use(0, *bob);
+		me->use(1, *bob);
+		delete bob;
+		delete me;
+		delete src;
+	}
 }

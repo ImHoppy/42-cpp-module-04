@@ -36,11 +36,12 @@ void	Character::Init()
 
 Character::~Character()
 {
-	// for (int i = 0; i < 4; i++)
-	// {
-	// 	if (_inventory[i] != NULL)
-	// 		delete _inventory[i];
-	// }
+	for (int i = 0; i < 4; i++)
+	{
+		if (_inventory[i] != NULL)
+			delete _inventory[i];
+		_inventory[i] = NULL;
+	}
 }
 
 
@@ -74,7 +75,7 @@ void	Character::use( int idx, ICharacter & target )
 		return ;
 	if (this->_inventory[idx] == NULL)
 		return ;
-	
+
 	this->_inventory[idx]->use(target);
 }
 
@@ -98,11 +99,8 @@ void	Character::unequip( int idx )
 {
 	if (idx < 0 || idx > 3)
 		return ;
-	if (this->_inventory[idx] == NULL)
-		return ;
 
 	this->_inventory[idx] = NULL;
-	
 }
 
 

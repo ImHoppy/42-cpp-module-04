@@ -4,12 +4,13 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-MateriaSource::MateriaSource()
+MateriaSource::MateriaSource() : tempPtr(NULL)
 {
 }
 
-MateriaSource::MateriaSource( const MateriaSource & src )
+MateriaSource::MateriaSource( const MateriaSource & src ) : tempPtr(NULL)
 {
+	*this = src;
 }
 
 
@@ -19,6 +20,9 @@ MateriaSource::MateriaSource( const MateriaSource & src )
 
 MateriaSource::~MateriaSource()
 {
+	if (tempPtr != NULL)
+		delete tempPtr;
+	
 }
 
 
@@ -28,10 +32,10 @@ MateriaSource::~MateriaSource()
 
 MateriaSource &				MateriaSource::operator=( MateriaSource const & rhs )
 {
-	//if ( this != &rhs )
-	//{
-		//this->_value = rhs.getValue();
-	//}
+	if ( this != &rhs )
+	{
+		this->tempPtr = rhs.tempPtr;
+	}
 	return *this;
 }
 
@@ -42,12 +46,18 @@ MateriaSource &				MateriaSource::operator=( MateriaSource const & rhs )
 
 void MateriaSource::learnMateria( AMateria * src )
 {
+	if (tempPtr != NULL)
+		delete tempPtr;
 	tempPtr = src;
 }
 
 AMateria *  MateriaSource::createMateria( std::string const & type )
 {
-	return (new Cure());
+	if (type == "cure")
+		return (new Cure());
+	else
+		return (new Ice());
+
 }
 
 /*
