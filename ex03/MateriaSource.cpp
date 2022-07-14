@@ -55,8 +55,10 @@ AMateria *  MateriaSource::createMateria( std::string const & type )
 {
 	if (type == "cure")
 		return (new Cure());
-	else
+	else if (type == "ice")
 		return (new Ice());
+	else
+		return (NULL);
 
 }
 

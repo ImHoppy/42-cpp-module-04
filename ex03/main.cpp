@@ -15,25 +15,30 @@ int main(void)
 	AMateria *	spellCure = new Cure();
 
 	MAIN_LOG("Copy constructor tests.");
-	{
-		michel.equip(spellCure);
-		Character copy(michel);
-		MAIN_LOG("  - copy call spell");
-		copy.equip(spellIce);
-		copy.use(0, test);
-		copy.use(1, test);
-		MAIN_LOG("  - michel call spell");
+	michel.equip(spellCure);
+	Character copy(michel);
+	MAIN_LOG("  - copy call spell");
+	copy.equip(spellIce);
+	copy.use(0, test);
+	copy.use(1, test);
+	MAIN_LOG("  - michel call spell");
 
-		michel.use(0, copy);
-		michel.use(1, copy);
-		michel.unequip(0);
-	}
+	michel.use(0, copy);
+	michel.use(1, copy);
+	michel.unequip(0);
+
 	MAIN_LOG("Equipe for Main tests.");
 	test.equip(NULL);
 	test.equip(spellIce);
 	test.unequip(0);
 	test.equip(spellIce);
 	test.equip(spellCure);
+	test.equip(spellIce);
+	test.equip(spellCure);
+	test.equip(spellCure);
+	test.use(3, michel);
+	test.unequip(2);
+	test.unequip(3);
 
 	MAIN_LOG("Tests error.");
 	test.use(1, undefined);
@@ -62,15 +67,20 @@ int main(void)
 		IMateriaSource* src = new MateriaSource();
 		src->learnMateria(new Ice());
 		src->learnMateria(new Cure());
+		
 		ICharacter* me = new Character("me");
+		
 		AMateria* tmp;
 		tmp = src->createMateria("ice");
 		me->equip(tmp);
 		tmp = src->createMateria("cure");
 		me->equip(tmp);
+		
 		ICharacter* bob = new Character("bob");
+		
 		me->use(0, *bob);
 		me->use(1, *bob);
+
 		delete bob;
 		delete me;
 		delete src;
